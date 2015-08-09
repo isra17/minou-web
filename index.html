@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/app.css" />
+  <title>minou</title>
+  <link rel="shortcut icon" href="img/minou_logo.png">
+</head>
+<body>
+  <img id="logo" src="img/minou_white.png" />
+  <h1>minou</h1>
+  <div id="messages"></div>
+  <form id="input-form">
+    <input type="text" id="input-box" autofocus disabled />
+  </form>
+
+  <script src="lib/jquery-2.1.4.min.js"></script>
+  <script src="lib/autobahn.min.js"></script>
+  <script src="lib/underscore.js"></script>
+
+  <script type="text/x-tpl" id="message-tpl">
+    <div class="message">
+      <span class="from"><%- from %></span> &gt;
+      <span class="content"><%- content %></span>
+    </div>
+  </script>
+  
+  <script type="text/x-tpl" id="picture-tpl">
+    <div class="message">
+      <span class="from"><%- from %></span> &gt;
+	  <br/>
+	  <img class="image" src='<%- picture %>'/>
+    </div>
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
