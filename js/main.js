@@ -101,7 +101,7 @@ $(document).ready(function(){
   $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
       appId: APP_ID,
-      version: 'v2.2'
+      version: 'v2.3'
     });
 
     FB.login(function(response){
