@@ -99,8 +99,8 @@ $(document).ready(function(){
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
-      appId: '750374798414544',
-      version: 'v2.3'
+      appId: APP_ID,
+      version: 'v2.2'
     });
 
     FB.login(function(response){
