@@ -6,6 +6,7 @@ $(document).ready(function(){
     var APP_ID = '816315155153841'
   }
   var AUTH_URL = 'http://minou.blindr.me/auth';
+  var CROSSBAR_URL = 'ws://router.minou.blindr.me/ws';
 
   var messageTpl = _.template($('#message-tpl').text());
   var pictureTpl = _.template($('#picture-tpl').text());
@@ -28,7 +29,7 @@ $(document).ready(function(){
     userName = data.user_name
 	authId = data.id;
     var connection = new autobahn.Connection({
-      url: location.origin.replace(/^http/, 'ws') + '/ws',
+      url: CROSSBAR_URL,
       realm: 'minou',
       authmethods: ['wampcra'],
       authid: authId,
