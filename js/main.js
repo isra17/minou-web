@@ -69,7 +69,7 @@ $(document).ready(function(){
       function sendMessage(message) {
         var textType = 'text/plain';
         session.publish('minou.public.worldwide.canada.quebec.general', [], {from: authId, user_name: userName, content: message, content_type: textType});
-        appendMessage('self', message);
+        appendMessage(authId, message, userName, 'text/plain');
       }
 
       $('#input-form').submit(function(event){
