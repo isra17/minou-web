@@ -64,6 +64,9 @@ $(document).ready(function(){
         } else if(type == 'text/plain'){
           $('#messages').append(messageTpl({from: user_name, content: content}));
         }
+        $('#messages').stop().animate({
+          scrollTop: $('#messages')[0].scrollHeight
+        }, 500);
       }
       
       function sendMessage(message) {
