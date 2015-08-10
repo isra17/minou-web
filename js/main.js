@@ -1,7 +1,7 @@
 $(document).ready(function(){
   "use strict"
 
-  var APP_ID = '750374798414544'
+  var APP_ID = '750337081751649'
   if(location.hostname == 'localhost') {
     var APP_ID = '816315155153841'
   }
@@ -25,7 +25,7 @@ $(document).ready(function(){
 	};
 
   function new_connection(data) {
-    userName = data.fake_name
+    userName = data.user_name
 	authId = data.id;
     var connection = new autobahn.Connection({
       url: location.origin.replace(/^http/, 'ws') + '/ws',
@@ -47,27 +47,27 @@ $(document).ready(function(){
         if(isActive === false){
           document.title = '* minou';
         }
-        appendMessage(kwargs.from, kwargs.content, kwargs.fake_name, kwargs.type);
+        appendMessage(kwargs.from, kwargs.content, kwargs.user_name, kwargs.content_type);
       });
 
       session.call('plugin.history.fetch', [topic])
         .then(function(messages) {
           messages.forEach(function(message) {
-            appendMessage(message.user, message.content, message.user, message.type);
+            appendMessage(message.from, message.content, message.user_name, message.content_type);
           })
         })
 
-      function appendMessage(from, content, fake_name, type) {
+      function appendMessage(from, content, user_name, type) {
         if(type == 'image/jpeg'){
-          $('#messages').append(pictureTpl({from: fake_name, picture: 'data:image/png;base64,' + content}));
+          $('#messages').append(pictureTpl({from: user_name, picture: 'data:image/png;base64,' + content}));
         } else if(type == 'text/plain'){
-          $('#messages').append(messageTpl({from: fake_name, content: content}));
+          $('#messages').append(messageTpl({from: user_name, content: content}));
         }
       }
-
+      
       function sendMessage(message) {
         var textType = 'text/plain';
-        session.publish('minou.public.worldwide.canada.quebec.general', [], {from: authId, fake_name: userName, content: message, type: textType});
+        session.publish('minou.public.worldwide.canada.quebec.general', [], {from: authId, user_name: userName, content: message, content_type: textType});
         appendMessage('self', message);
       }
 
