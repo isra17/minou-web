@@ -6,7 +6,7 @@ $(document).ready(function(){
     var APP_ID = '816315155153841'
   }
   var AUTH_URL = 'http://minou.blindr.me/auth';
-  var CROSSBAR_URL = 'ws://router.minou.blindr.me/ws';
+  var CROSSBAR_URL = 'ws://router.minou.blindr.me';
 
   var messageTpl = _.template($('#message-tpl').text());
   var pictureTpl = _.template($('#picture-tpl').text());
@@ -68,7 +68,7 @@ $(document).ready(function(){
           scrollTop: $('#messages')[0].scrollHeight
         }, 500);
       }
-      
+
       function sendMessage(message) {
         var textType = 'text/plain';
         session.publish('minou.public.worldwide.canada.quebec.general', [], {from: authId, user_name: userName, content: message, content_type: textType});
