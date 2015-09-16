@@ -5,8 +5,8 @@ $(document).ready(function(){
   if(location.hostname == 'localhost') {
     var APP_ID = '816315155153841'
   }
-  var AUTH_URL = 'http://minou.blindr.me/auth';
-  var CROSSBAR_URL = 'ws://router.minou.blindr.me';
+  var AUTH_URL = 'http://backend.subjest.xyz/auth';
+  var CROSSBAR_URL = 'ws://router.subjest.xyz';
 
   var messageTpl = _.template($('#message-tpl').text());
   var pictureTpl = _.template($('#picture-tpl').text());
